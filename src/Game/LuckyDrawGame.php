@@ -29,12 +29,12 @@ class LuckyDrawGame
     public function makeTurn(): void
     {
         foreach ($this->players as $player) {
-
+            $player->guessLetter($this->state);
         }
     }
 
     public function isFinished(): bool
     {
-        return $this->state->getMaskedWord() === $this->state->getSecret();
+        return $this->state->isFinished();
     }
 }

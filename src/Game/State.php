@@ -34,4 +34,9 @@ class State
     {
         return $this->masked_word;
     }
+
+    public function isFinished(): bool
+    {
+        return $this->getMaskedWord() === $this->getSecret();
+    }
 }
