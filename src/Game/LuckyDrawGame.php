@@ -26,11 +26,12 @@ class LuckyDrawGame
         $this->players[] = $player;
     }
 
-    public function makeTurn(): void
+    public function makeTurn(): State
     {
         foreach ($this->players as $player) {
-            $player->guessLetter($this->state);
+            $this->state->addLetter($player->guessLetter($this->state));
         }
+        return $this->state;
     }
 
     public function isFinished(): bool
